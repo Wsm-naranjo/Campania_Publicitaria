@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <div class="text-center">
+            <h1 class="text-primary">Bienvenido @User.Identity.Name!!</h1>
+            @*<p>La mejor forma de predecir el futuro es crearlo. Abraham Lincoln</p>
+            <p class="text-dark h3"> Modulo Campania Publicitaria </p>
+            <p class="text-dark h3"> Este modulo mantiene el control de las campañas publicitarias.</p>*@
+        </div>
+    </div>
+}
+else
+{
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <div class="text-center">
+            <h1 class="text-primary">Bienvenidos!!</h1>
+            <p>La mejor forma de predecir el futuro es crearlo. Abraham Lincoln</p>
+            <p class="text-dark h3"> Modulo Campania Publicitaria </p>
+            <p class="text-dark h3"> Este modulo mantiene el control de las campañas publicitarias.</p>
+        </div>
+    </div>
+    <div class="row" style="width:100%;">
+        <div class="col-4">
+            <img src="~/img/img1.jpg" width="300" />
+        </div>
+        <div class="col-4">
+            <img src="~/img/img2.jpg" width="300" />
+        </div>
+        <div class="col-4">
+            <img src="~/img/imagen 3.jpg" width="300" />
+        </div>
+    </div>
+}

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CampaniaAplicacion.Models.Campania>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Campaña</h1>
+
+@*<p>
+    <a asp-action="Crear">Crear</a>
+</p>*@
+<table class="table" style="width:100%;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaFinalizacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaFinalizacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <a asp-action="Editar" asp-route-id="@item.Id" class="btn btn-outline-info">Editar</a>
+            </td>
+            <td>
+                
+                <a asp-action="Detalle" asp-route-id="@item.Id" class="btn btn-outline-info">Detalle</a>
+            </td>
+            <td>
+                <a asp-action="Borrar" asp-route-id="@item.Id" class="btn btn-outline-info">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

@@ -1,0 +1,87 @@
+﻿@model CampaniaAplicacion.Models.Campania
+@{
+    ViewData["Title"] = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="width:100%; margin-top:100px;">
+    <div class="col-12">
+        <h2 class="text-primary text-center"> Creacion de Campanias</h2>
+    </div>    
+</div>
+<div class="row" style="width: 100%; margin-top: 100px;">
+    <div class=" col-12 col-md-12">
+        <h2 class="text-dark"> En la creacion de Campañas se simula que se recibio
+        una previa informacion por el modulo de producto,ventas,compras, en
+        la cual se lanza una campaña publicitaria con el mutuo acuerdo entre los modulos.</h2>
+    </div>
+</div>
+    <div class="row justify-content-end "  style="width: 100%; margin-top: 100px;">
+        <div class="col-4">
+            <button type="button" class="btn btn-outline-info form-control " data-toggle="modal" data-target="#myModal">Crear Nueva campaña</button>
+        </div>
+    </div>
+    <!-- Final Tabla -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h2 class="modal-title text-primary text-center">Ingreso de Campania</h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="padding-left:15%; padding-right:15%; padding-bottom:30px;">
+                            <div class="row p-3 border-0">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            </div>
+                            <div class="form-row" style="padding-top:14px;">
+                                <div class="form-group col-md-6">
+                                    <label>Nombre</label>
+                                    <input asp-for="Nombre" class="form-control" placeholder="Nombre" />
+                                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Fecha Inicio</label>
+                                    <input asp-for="FechaInicio" class="form-control" />
+                                    <span asp-validation-for="FechaInicio" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Fecha Finalizacion</label>
+                                    <input asp-for="FechaFinalizacion" class="form-control" />
+                                    <span asp-validation-for="FechaFinalizacion" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Descripcion</label>
+                                <input asp-for="Descripcion" class="form-control" placeholder="Descripcion campaña" />
+                                <span asp-validation-for="Descripcion" class="text-danger"></span>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Estado</label>
+                                    <select asp-for="Estado" class="form-control">
+                                        <option value="true">Activo</option>
+                                        <option value="false">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a asp-action="Index" class="btn btn-outline-info">Mostrar Campañas</a>
+                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                                <button type="submit" value="Create" class="btn btn-outline-success">Guardar Cambios</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Final Modal
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+    <!-- <script src="~/js/Campania.js"></script>-->
